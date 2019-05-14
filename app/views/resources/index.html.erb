@@ -1,0 +1,15 @@
+<div class="container">
+  <% @resources.each do |resource| %>
+    <div class="resource-card">
+      <div class="resource-header">
+        <h5><%= resource.title %></h5>
+        <h5>
+          <a href=<%= resource.link %> target="_blank"><i class="fas fa-globe-americas"></i></a>
+        </h5>
+      </div>
+      <div class="resource-text">
+        <h6><%= resource.text %></h6>
+      </div>
+    </div>
+  <% end %>
+</div>

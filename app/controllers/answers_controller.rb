@@ -9,6 +9,11 @@ class AnswersController < ApplicationController
   end
 
   def create
+    @answer = Answer.new(answer_params)
+    @answer.user = current_user
+    @answer.question = Question.find(params[:question_id])
+    @answer.save
+    redirect_to question_path(@answer.question)
   end
 
   def edit
@@ -18,5 +23,11 @@ class AnswersController < ApplicationController
   end
 
   def delete
+  end
+
+  private
+
+  def answer_params
+    params.require(:answer).permit(:text)
   end
 end
