@@ -1,0 +1,22 @@
+.navbar-home {
+  height: 70px;
+  justify-content: space-between;
+  margin-bottom: -70px;
+  background: transparent;
+  * {
+    color: white;
+  }
+}
+
+.nav-link {
+  color: white;
+}
+
+.nav-home-link {
+  color: white !important;
+}
+
+.home-dropdown-item {
+  color: black !important;
+}
+

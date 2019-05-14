@@ -4,4 +4,17 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+#   Character.create(name: 'Luke', movie: movies.first
+
+User.create(
+  email: "fritz@refugee-project.com",
+  password: "12345678"
+)
+
+10.times do
+  Question.create(
+    title: "This is a random question.",
+    text: "This is the text of a random question.",
+    user: User.find(1)
+  )
+end

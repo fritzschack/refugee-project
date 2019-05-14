@@ -1,0 +1,33 @@
+<div class="wrapper">
+  <div class="container" style="margin-top: 40px;">
+    <h1>Questions</h1>
+    <h4 style="margin-bottom: 40px;">Ask away and let locals help you find answers.</h4>
+    <%= simple_form_for @question do |field| %>
+      <%= field.input :title, placeholder: "Please enter the title of your question", input_html: {class: "question_input_top"}, label:false %>
+      <%= field.input :text, placeholder: "Please enter any additional information", input_html: {class: "question_input_bottom"}, label:false %>
+      <%= field.button :submit, class: "btn btn-primary button form-submission-button", data: { disable_with: false } %>
+    <% end %>
+    <% @questions.each do |question| %>
+      <div class="question-list">
+        <div class="question">
+          <div class='question-body'>
+            <h3><%= question.title %></h3>
+            <p><%= question.text %></p>
+          </div>
+          <ul class="list-inline question-controls hidden-sm hidden-xs">
+            <li class="comment-button">
+              <%= link_to(question) do %>
+                <i class="fas fa-comment"><span class="comment-counter"> <%= question.answers.count %></span></i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to "" do %>
+                <i class="fas fa-heart"></i>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

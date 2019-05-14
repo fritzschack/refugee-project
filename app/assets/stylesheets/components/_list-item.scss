@@ -1,0 +1,114 @@
+.question-list {
+  margin: 40px 0px;
+}
+
+.question {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 3px;
+  transition: all 0.15s ease;
+}
+
+/* Body design */
+.question-body {
+  flex: 1 1 auto;
+}
+.question-body h3 {
+  font-weight: bold;
+  font-size: 23px;
+  margin-top: 0;
+}
+.question-body p {
+  font-weight: lighter;
+  color: #999999;
+  margin-bottom: 0;
+}
+
+/* question image */
+.question-image {
+  border-radius: 10px;
+  margin-right: 20px;
+  width: 175px;
+}
+
+/* Upvote design */
+.question-upvote {
+  padding-right: 20px;
+  text-align: center;
+  transition: all 0.15s ease;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 20px;
+}
+.question-count {
+  margin: 2px 0 0;
+}
+.question-arrow {
+  transition: all 0.15s ease;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid transparent;
+  border-bottom: 9px solid black;
+  border-radius: 2px;
+  margin: auto;
+}
+
+/* Controls design */
+.question-controls {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 0px;
+}
+.question-controls a {
+  padding: 0 20px;
+  font-size: 17px;
+  color: #E6E6E6;
+}
+.question-controls a:hover {
+  color: #D3473C !important
+}
+.question-controls-hidden a {
+  color: transparent;
+  font-size: 15px;
+  transition: all 0.15s ease;
+  border-color: transparent;
+}
+
+/* Hover effects */
+.question:hover {
+  margin-left: 5px;
+  border-left: 5px solid #007BFF;
+  background: #f7f7fa;
+  cursor: pointer;
+}
+.question-upvote:hover, .question-upvote.question-upvote-upvoted {
+  color: #5898f1;
+  cursor: pointer;
+}
+.question-upvote-upvoted .question-arrow {
+  border-bottom-color: #5898f1;
+}
+
+.question:hover .question-controls-hidden a {
+  color: #E6E6E6;
+}
+.question-upvote:hover .question-arrow {
+  border-bottom: 9px solid #5898f1;
+}
+
+.comment-button {
+  &:hover {
+    text-decoration: none;
+    * {
+      color: green;
+    }
+  }
+}
+
+.comment-counter {
+  font-family: arial;
+}
