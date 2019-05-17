@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+
   def index
     @questions = Question.all.reverse_order
     @question = Question.new

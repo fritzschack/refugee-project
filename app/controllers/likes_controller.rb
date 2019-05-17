@@ -8,7 +8,8 @@ class LikesController < ApplicationController
     redirect_to questions_path
   end
 
-  def delete
-    Like.destroy(params[:like_id])
+  def destroy
+    Like.destroy(params[:id])
+    redirect_to questions_path
   end
 end

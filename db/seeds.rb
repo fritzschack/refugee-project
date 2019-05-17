@@ -10,14 +10,31 @@ require 'faker'
 
 User.create(
   email: "fritz@refugee-project.com",
-  password: "12345678"
+  password: "12345678",
+  first_name: "Fritz",
+  last_name: "Schack",
+  description: "This is me!",
+  is_refugee: false
 )
+
+10.times do
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
+  User.create(
+    email: "#{first_name}.#{last_name}@#{Faker::Internet.domain_name}",
+    password: "12345678",
+    first_name: first_name,
+    last_name: last_name,
+    description: Faker::Lorem.paragraph(5),
+    is_refugee: true
+  )
+end
 
 10.times do
   Question.create(
     title: Faker::GreekPhilosophers.quote,
     text: Faker::Lorem.paragraph(10),
-    user: User.find(1)
+    user: User.all.sample
   )
 end
 

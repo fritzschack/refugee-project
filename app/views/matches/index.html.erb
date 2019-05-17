@@ -1,0 +1,23 @@
+<% if current_user.users.count == 0 %>
+  <div class="container"><h4>Sorry, you have no matches. Start now!</h4></div>
+<% else %>
+  <div class="container">
+    <h1>Your matches</h1>
+    <div class="row">
+      <% current_user.users.each do |user| %>
+        <% @match = Match.where(user_a: current_user, user_b: user).first %>
+        <%= link_to(match_path(@match)) do %>
+          <div class="col-xs-12 col-sm-3 match-card">
+            <h3><strong><%= "#{user.first_name} #{user.last_name}" %></strong></h3><br>
+            <h4><%= user.description %></h4><br>
+            <% if user.is_refugee == true %>
+              <p>Refugee</p>
+            <% else %>
+              <p>Citizen</p>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
