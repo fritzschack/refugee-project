@@ -1,0 +1,25 @@
+<% @match_user = [@match.user_a, @match.user_b].select { |user| user != current_user }.first %>
+
+<div class="container">
+  <div class="chat-header">
+    <h1><%= "#{@match_user.first_name} #{@match_user.last_name}" %></h1>
+    <div class="status-tag">
+      <h5>
+        <%= @match_user.is_refugee ? "Refugee" : "Citizen" %>
+      </h5>
+    </div>
+  </div>
+  <div class="answer-card">
+    <% @messages.each do |message| %>
+      <% if message.user == current_user %>
+        <div class="speech-bubble-sender"><p><%= message.text %></p></div>
+      <% else %>
+        <div class="speech-bubble"><p><%= message.text %></p></div>
+      <% end %>
+    <% end %>
+    <%= simple_form_for([ @match, @message ]) do |form| %>
+      <%= form.input :text, label:false %>
+      <%= form.button :submit, class: "btn btn-primary button form-submission-button" %>
+    <% end %>
+  </div>
+</div>

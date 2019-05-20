@@ -1,5 +1,40 @@
 .match-card {
   padding: 20px;
-  margin: 10px;
+  margin: 5px;
   background: white;
+  * {
+    color: black;
+  }
+  * {
+    text-decoration: none !important;
+    &:hover {
+      color: black;
+      text-decoration: none !important;
+    }
+  }
+  .match-card-header {
+    height: 80px;
+  }
+  .match-card-status {
+    height: 30px;
+  }
+  &:hover {
+    border-bottom: 5px solid #031926;
+    margin-top: -1px;
+    transition: 0.3s;
+    text-decoration: none !important;
+  }
+}
+
+.match-link {
+  height: auto;
+  width: auto;
+}
+
+.subnavbar {
+  background-color: #031926;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
 }

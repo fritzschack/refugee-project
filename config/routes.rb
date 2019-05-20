@@ -12,7 +12,9 @@ Rails.application.routes.draw do
 
   resources :resources, only: [:index]
 
-  resources :matches, only: [:index, :show, :destroy]
+  resources :matches, only: [:index, :show, :create, :destroy] do
+    resources :messages, only: [:create]
+  end
 
   get '/configuration', to: 'pages#match', as: :start_matches
 

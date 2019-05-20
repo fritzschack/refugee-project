@@ -1,0 +1,20 @@
+.chat-header {
+  background-color: #031926;
+  color: white;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.status-tag {
+  display: block;
+  vertical-align: center;
+  height: 40px;
+  color: white;
+  background-color: #f46036;
+  padding: 10px 20px;
+  border-radius: 10px;
+  h5 {
+    margin: 0;
+  }
+}

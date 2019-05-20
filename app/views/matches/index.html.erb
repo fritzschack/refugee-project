@@ -1,23 +1,35 @@
-<% if current_user.users.count == 0 %>
-  <div class="container"><h4>Sorry, you have no matches. Start now!</h4></div>
-<% else %>
-  <div class="container">
+<div class="container">
+  <div class="subnavbar">
     <h1>Your matches</h1>
-    <div class="row">
-      <% current_user.users.each do |user| %>
-        <% @match = Match.where(user_a: current_user, user_b: user).first %>
-        <%= link_to(match_path(@match)) do %>
-          <div class="col-xs-12 col-sm-3 match-card">
-            <h3><strong><%= "#{user.first_name} #{user.last_name}" %></strong></h3><br>
-            <h4><%= user.description %></h4><br>
-            <% if user.is_refugee == true %>
-              <p>Refugee</p>
-            <% else %>
-              <p>Citizen</p>
-            <% end %>
+    <div class="status-tag">
+      <h5>
+        <%= link_to "New match", matches_path, method: :post %>
+      </h5>
+    </div>
+  </div>
+  <div class="row">
+    <% if Match.all.select{ |match| match.user_a == current_user || match.user_b == current_user }.count == 0 %>
+      <div class="container"><h4>Sorry, you have no matches. Start now!</h4></div>
+    <% else %>
+      <% Match.all.select{ |match| match.user_a == current_user || match.user_b == current_user }.each do |match| %>
+        <% @match_user = (match.user_a == current_user) ? match.user_b : match.user_a %>
+        <div class="col-xs-12 col-sm-3">
+          <%= link_to(match_path(match), class: "match-link") do %>
+            <div class="match-card">
+              <div class="match-card-status">
+                <%= @match_user.is_refugee == true ? "Refugee" : "Citizen" %>
+              </div>
+              <div class="match-card-header">
+                <h3>
+                  <strong>
+                    <%= "#{@match_user.first_name} #{@match_user.last_name}" %>
+                  </strong>
+                </h3>
+              </div>
+            </div>
           </div>
         <% end %>
       <% end %>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

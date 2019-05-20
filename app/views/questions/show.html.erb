@@ -9,7 +9,11 @@
   </div>
   <div class="answer-card">
     <% @question.answers.each do |answer| %>
-      <div class="speech-bubble"><p><%= answer.text %></p></div>
+      <% if answer.user == current_user %>
+        <div class="speech-bubble-sender"><p><%= answer.text %></p></div>
+      <% else %>
+        <div class="speech-bubble-sender"><p><%= answer.text %></p></div>
+      <% end %>
     <% end %>
     <%= simple_form_for([ @question, @answer ]) do |form| %>
       <%= form.input :text, label:false %>

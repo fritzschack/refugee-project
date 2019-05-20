@@ -23,3 +23,29 @@
   margin-top: -5px;
   margin-left: -10px;
 }
+
+.speech-bubble-sender {
+  position: relative;
+  background: #c1dbb3;
+  border-radius: 10px;
+  margin: 10px 0px 10px 10px;
+  padding: 10px;
+  p {
+    margin: 0;
+  }
+}
+
+.speech-bubble-sender:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 20px solid transparent;
+  border-left-color: #c1dbb3;
+  border-right: 0;
+  border-bottom: 0;
+  margin-top: -5px;
+  margin-right: -10px;
+}
