@@ -3,11 +3,11 @@
     <h1>Your matches</h1>
     <div class="status-tag">
       <h5>
-        <%= link_to "New match", matches_path, method: :post %>
+        <%= link_to("New match", matches_path, method: :post, class: "form-submission-button") %>
       </h5>
     </div>
   </div>
-  <div class="row">
+  <div class="row" style="margin: 20px 0px;">
     <% if Match.all.select{ |match| match.user_a == current_user || match.user_b == current_user }.count == 0 %>
       <div class="container"><h4>Sorry, you have no matches. Start now!</h4></div>
     <% else %>
@@ -17,7 +17,7 @@
           <%= link_to(match_path(match), class: "match-link") do %>
             <div class="match-card">
               <div class="match-card-status">
-                <%= @match_user.is_refugee == true ? "Refugee" : "Citizen" %>
+                <%= @match_user.is_refugee == true ? "REFUGEE" : "CITIZEN" %>
               </div>
               <div class="match-card-header">
                 <h3>

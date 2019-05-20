@@ -17,7 +17,11 @@
   background-color: #f46036;
   border: none;
   border-radius: 50px;
+  color: white;
+  text-decoration: none !important;
   &:hover {
+    color: white;
+    text-decoration: none !important;
     background-color: #f46036;
     opacity: 0.8;
     border: none;

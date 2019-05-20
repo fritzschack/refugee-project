@@ -6,10 +6,21 @@ class MatchesController < ApplicationController
   end
 
   def create
+    # Match.all.select{ |match| match.user_a == current_user || match.user_b == current_user }
+    @matched_users = Match.all.select { |match| match.user_a == current_user || match.user_b == current_user }.map do |match|
+      if match.user_a == current_user
+        match.user_b
+      else
+        match.user_a
+      end
+    end
+
+    @unmatched_users = User.all - @matched_users
+
     if current_user.is_refugee == true
-      @match_user = User.where(is_refugee: false).sample
+      @match_user = @unmatched_users.select { |user| user.is_refugee == false }.sample
     else
-      @match_user = User.where(is_refugee: true).sample
+      @match_user = @unmatched_users.select { |user| user.is_refugee == true }.sample
     end
 
     Match.create(user_a: current_user, user_b: @match_user)
