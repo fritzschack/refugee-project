@@ -8,35 +8,205 @@
 
 require 'faker'
 
-User.create(
-  email: "fritz@refugee-project.com",
+puts "Creating users..."
+
+max_mustermann = User.create(
+  email: "max.mustermann@mustermail.com",
   password: "12345678",
-  first_name: "Fritz",
-  last_name: "Schack",
-  description: "This is me!",
+  first_name: "Max",
+  last_name: "Mustermann",
   is_refugee: false
 )
 
-10.times do
-  first_name = Faker::Name.first_name
-  last_name = Faker::Name.last_name
-  User.create(
-    email: "#{first_name}.#{last_name}@#{Faker::Internet.domain_name}",
-    password: "12345678",
-    first_name: first_name,
-    last_name: last_name,
-    description: Faker::Lorem.paragraph(5),
-    is_refugee: true
-  )
-end
+refugee_1 = User.create(
+  email: "mohamed.karasin@#{Faker::Internet.domain_name}",
+  password: "12345678",
+  first_name: "Mohamed",
+  last_name: "Karasin",
+  is_refugee: true
+)
 
-10.times do
-  Question.create(
-    title: Faker::GreekPhilosophers.quote,
-    text: Faker::Lorem.paragraph(10),
-    user: User.all.sample
-  )
-end
+refugee_2 = User.create(
+  email: "leyla.essa@#{Faker::Internet.domain_name}",
+  password: "12345678",
+  first_name: "Leyla",
+  last_name: "Essa",
+  is_refugee: true
+)
+
+refugee_3 = User.create(
+  email: "junis.haddad@#{Faker::Internet.domain_name}",
+  password: "12345678",
+  first_name: "Junis",
+  last_name: "Haddad",
+  is_refugee: true
+)
+
+refugee_4 = User.create(
+  email: "nael.mahmood@#{Faker::Internet.domain_name}",
+  password: "12345678",
+  first_name: "Nael",
+  last_name: "Mahmood",
+  is_refugee: true
+)
+
+refugee_5 = User.create(
+  email: "tarek.mansoor@#{Faker::Internet.domain_name}",
+  password: "12345678",
+  first_name: "Tarek",
+  last_name: "Mansoor",
+  is_refugee: true
+)
+
+refugee_6 = User.create(
+  email: "kaya.rahman@#{Faker::Internet.domain_name}",
+  password: "12345678",
+  first_name: "Kaya",
+  last_name: "Rahman",
+  is_refugee: true
+)
+
+refugee_7 = User.create(
+  email: "devin.abel@#{Faker::Internet.domain_name}",
+  password: "12345678",
+  first_name: "Devin",
+  last_name: "Abdel",
+  is_refugee: true
+)
+
+refugee_8 = User.create(
+  email: "amar.naser@#{Faker::Internet.domain_name}",
+  password: "12345678",
+  first_name: "Amar",
+  last_name: "Naser",
+  is_refugee: true
+)
+
+refugee_9 = User.create(
+  email: "amir.qasim@#{Faker::Internet.domain_name}",
+  password: "12345678",
+  first_name: "Amir",
+  last_name: "Qasim",
+  is_refugee: true
+)
+
+refugee_10 = User.create(
+  email: "ali.sam@#{Faker::Internet.domain_name}",
+  password: "12345678",
+  first_name: "Ali",
+  last_name: "Sam",
+  is_refugee: true
+)
+
+refugee_11 = User.create(
+  email: "anna.mansour@#{Faker::Internet.domain_name}",
+  password: "12345678",
+  first_name: "Anna",
+  last_name: "Mansour",
+  is_refugee: true
+)
+
+refugee_12 = User.create(
+  email: "mara.hadad@#{Faker::Internet.domain_name}",
+  password: "12345678",
+  first_name: "Mara",
+  last_name: "Hadad",
+  is_refugee: true
+)
+
+refugee_13 = User.create(
+  email: "aleyna.mousa@#{Faker::Internet.domain_name}",
+  password: "12345678",
+  first_name: "Aleyna",
+  last_name: "Mousa",
+  is_refugee: true
+)
+
+refugee_14 = User.create(
+  email: "samira.malik@#{Faker::Internet.domain_name}",
+  password: "12345678",
+  first_name: "Samira",
+  last_name: "Malik",
+  is_refugee: true
+)
+
+refugee_15 = User.create(
+  email: "yara.awad@#{Faker::Internet.domain_name}",
+  password: "12345678",
+  first_name: "Yara",
+  last_name: "Awad",
+  is_refugee: true
+)
+
+refugee_16 = User.create(
+  email: "liyah.hassan@#{Faker::Internet.domain_name}",
+  password: "12345678",
+  first_name: "Liyah",
+  last_name: "Hassan",
+  is_refugee: true
+)
+
+puts "Creating matches..."
+
+match_1 = Match.create(
+  user_a: max_mustermann,
+  user_b: refugee_3
+)
+
+match_2 = Match.create(
+  user_a: max_mustermann,
+  user_b: refugee_7
+)
+
+match_3 = Match.create(
+  user_a: max_mustermann,
+  user_b: refugee_10
+)
+
+match_4 = Match.create(
+  user_a: max_mustermann,
+  user_b: refugee_16
+)
+
+puts "Creating questions..."
+
+question_1 = Question.create(
+  title: "Where can I educate myself for free/low cost?",
+  text: "I have recently arrived in Germany and I would like to spend my free time to educate further.",
+  user: User.where(is_refugee: true).sample
+)
+
+question_2 = Question.create(
+  title: "I am looking for a affordable way to get to Hamburg",
+  text: "My cousin lives in Hamburg and I would like to visit him. I need help to find the best way to get there. I already heard about trains, but if there are any better alternatives please let me know.",
+  user: User.where(is_refugee: true).sample
+)
+
+question_3 = Question.create(
+  title: "My family is still in Syria, where can I try to organize for them to come to Germany?",
+  text: "I would really like to get my children here, but I have no idea where to start. Do you have any tips?",
+  user: User.where(is_refugee: true).sample
+)
+
+question_4 = Question.create(
+  title: "Free soccer training/matches?",
+  text: "I love playing soccer and would say I am a medium good player. Any ideas where I can regularly participate in training sessions or matches?",
+  user: User.where(is_refugee: true).sample
+)
+
+question_5 = Question.create(
+  title: "Anyone willing to meet for coffee once a week to improve my German?",
+  text: "I only speak little German and would like to improve my skills by casually speaking over everyday topics with someone fluent in German.",
+  user: User.where(is_refugee: true).sample
+)
+
+question_6 = Question.create(
+  title: "My daughter is looking for friends to play at the playground with.",
+  text: "My daughter (6yo) is looking for friends to play with. She speaks a little German and would love to find some new friends.",
+  user: User.where(is_refugee: true).sample
+)
+
+puts "Creating resources..."
 
 Resource.create(
   title: "Arbeiter-Samariter-Bund (ASB)",
@@ -103,5 +273,7 @@ Resource.create(
   link: "https://www.der-paritaetische.de/schwerpunkt/fluechtlingshilfe/aktivitaeten/",
   text: "Many member organisations of the Paritätischer Gesamtverband in Germany such as arche noVa, Freunde der Erziehungskunst, HelpAge, LandsAid and SODI are active in advising and supporting refugees. They assist the refugees in legal and social questions concerning work, housing, family reunification, residence, partnership and family, support them in official matters, arrange legal assistance and offer a wide range of educational and leisure activities. Thus, there are opportunities to attend language courses as well as vocational training courses. Several member organisations are also involved in the counselling and care of unaccompanied minor refugees and the treatment of traumatised people. In addition, refugees are trained as integration helpers in order to make it easier for newly arriving refugees to start a new life. Handicap International is especially dedicated to the care of refugees with disabilities."
 )
+
+puts "Done! 🎉"
 
 
