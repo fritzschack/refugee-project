@@ -1,5 +1,7 @@
 .speech-bubble {
+  width: 90%;
   position: relative;
+  float: left;
   background: white;
   border-radius: 10px;
   margin: 10px 0px 10px 10px;
@@ -25,7 +27,9 @@
 }
 
 .speech-bubble-sender {
+  width: 90%;
   position: relative;
+  float: right;
   background: #c1dbb3;
   border-radius: 10px;
   margin: 10px 0px 10px 10px;

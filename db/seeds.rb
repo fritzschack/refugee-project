@@ -146,11 +146,35 @@ refugee_16 = User.create(
   is_refugee: true
 )
 
-puts "Creating matches..."
+puts "Creating matches and messages..."
 
 match_1 = Match.create(
   user_a: max_mustermann,
   user_b: refugee_3
+)
+
+Message.create(
+  match: match_1,
+  user: refugee_3,
+  text: "Hey Max, this is Junis. I am from Syria and have arrived in Germany 4 weeks ago. Thank you very much for taking the time to talk to me!"
+)
+
+Message.create(
+  match: match_1,
+  user: max_mustermann,
+  text: "Hi Junis! Great to get to know you!"
+)
+
+Message.create(
+  match: match_1,
+  user: max_mustermann,
+  text: "And of course, I find it highly interesting to talk to refugees and get to know their story. I am a strong believer that integration is only possible through the people"
+)
+
+Message.create(
+  match: match_1,
+  user: refugee_3,
+  text: "Sure, should we meet over coffee to talk about it? I would love to improve my German a little bit. I could also use some help for my job search if that's okay..."
 )
 
 match_2 = Match.create(
@@ -158,14 +182,110 @@ match_2 = Match.create(
   user_b: refugee_7
 )
 
+Message.create(
+  match: match_2,
+  user: max_mustermann,
+  text: "Hello Devin, my name is Max and I am a student at Code University in Berlin. How are you?"
+)
+
+Message.create(
+  match: match_2,
+  user: refugee_7,
+  text: "Hi Max! Coding sounds so cool, I would love to learn more about it. Is it too much to ask if I maybe ask for your help about finding some good courses for me?"
+)
+
+Message.create(
+  match: match_2,
+  user: refugee_7,
+  text: "If not, that's obviously okay!"
+)
+
+Message.create(
+  match: match_2,
+  user: max_mustermann,
+  text: "No, of course. If you are only just getting started, I would probably recommend you to start with Codecademy. They have great online courses to give you a first glimpse into coding."
+)
+
+Message.create(
+  match: match_2,
+  user: refugee_7,
+  text: "Oh that's great. I might actually try that! Sadly I don't have a computer though ..."
+)
+
+Message.create(
+  match: match_2,
+  user: max_mustermann,
+  text: "That shouldn't be a problem! You can go into public libraries, they usually have computers for free usage."
+)
+
 match_3 = Match.create(
   user_a: max_mustermann,
   user_b: refugee_10
 )
 
+Message.create(
+  match: match_3,
+  user: refugee_10,
+  text: "Hello Max, this is Ali. I am 27 years old and had to leave my home country of Lybia because of the war. Back there I worked as a plumber. I would love to get to know you better!"
+)
+
+Message.create(
+  match: match_3,
+  user: max_mustermann,
+  text: "Hi Ali! How cool that you already have some experience. A good friend of mine has his own plumbing business, and he is desperately searching for new people."
+)
+
+Message.create(
+  match: match_3,
+  user: max_mustermann,
+  text: "What are your qualifications?"
+)
+
+Message.create(
+  match: match_3,
+  user: refugee_10,
+  text: "I started working as a plumber when I was 17 and now have almost 10 years of experience. Although there are probably many differences to Germany ..."
+)
+
+Message.create(
+  match: match_3,
+  user: max_mustermann,
+  text: "There are ways to learn that, you could do an apprenticeship. Let's meet in person, maybe we can get you in contact with him!"
+)
+
 match_4 = Match.create(
   user_a: max_mustermann,
   user_b: refugee_16
+)
+
+Message.create(
+  match: match_4,
+  user: refugee_16,
+  text: "Hello Max, this is Liyah. I am 43 years old and am originally from Syria. This is a really cool website, it's cool to speak to locals"
+)
+
+Message.create(
+  match: match_4,
+  user: max_mustermann,
+  text: "Hi! It really is, I loved the idea right from the start."
+)
+
+Message.create(
+  match: match_4,
+  user: max_mustermann,
+  text: "How do you like Germany so far?"
+)
+
+Message.create(
+  match: match_4,
+  user: refugee_16,
+  text: "The country is beautiful, although rather cold ... but the people are mostly nice. It's really hard to get to know people though..."
+)
+
+Message.create(
+  match: match_4,
+  user: max_mustermann,
+  text: "I can imagine. How is your German, I feel like this is often the main issue!"
 )
 
 puts "Creating questions..."
