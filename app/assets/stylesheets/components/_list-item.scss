@@ -5,6 +5,7 @@
 .question {
   background-color: white;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 20px;
   border-radius: 3px;
@@ -13,7 +14,7 @@
 
 /* Body design */
 .question-body {
-  flex: 1 1 auto;
+  width: 95%;
 }
 .question-body h3 {
   font-weight: bold;
@@ -59,10 +60,8 @@
 
 /* Controls design */
 .question-controls {
-  display: flex;
-  align-items: center;
-  text-align: right;
-  margin: 0px;
+  height: 50px;
+  width: 50px;
 }
 .question-controls a {
   padding: 0 20px;
@@ -112,4 +111,19 @@
 
 .comment-counter {
   font-family: arial;
+}
+
+.question-link {
+  color: black;
+  height: auto;
+  width: auto;
+  &:hover {
+    color: black;
+    text-decoration: none !important;
+  }
+}
+
+.like-button {
+  right: 0;
+  float: right;
 }
