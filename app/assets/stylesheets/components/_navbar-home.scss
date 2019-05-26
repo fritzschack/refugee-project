@@ -9,11 +9,25 @@
 }
 
 .nav-link {
-  color: white;
+  // font-weight: 600;
+  &:hover {
+    color: #031926 !important;
+  }
 }
 
 .nav-home-link {
+  // font-weight: 600;
   color: white !important;
+  &:hover {
+    color: #f46036 !important;
+  }
+}
+
+.logout-link {
+  font-weight: 600;
+  &:hover {
+    color: #ff6666 !important;
+  }
 }
 
 .home-dropdown-item {
